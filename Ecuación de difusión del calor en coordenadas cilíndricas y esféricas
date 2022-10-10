@@ -1,0 +1,168 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Ecuación de difusión del calor en coordenadas cilíndricas y esféricas}
+\author{Guillermo Riquelme Hernández}
+
+\begin{document}
+\maketitle
+
+\section{Ecuación de difusión del calor en coordenadas cilíndricas}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\textwidth]{cilíndricas.jpg}
+\caption{\label{fig:frog}Diagrama de difusión de calor en coordenadas cilíndricas.}
+\end{figure}
+
+
+
+En la figura 1 se puede ver un diagrama que muestra el análisis geométrico a realizar en coordenadas cilíndricas. A partir del mismo se llega a la siguiente expresión:
+
+\[(\dot{q_r}-\dot{q_r}+d\dot{q_r})+(\dot{q_\phi}-\dot{q_\phi}+d\dot{q_\phi})+(\dot{q_z}-\dot{q_z}+d\dot{q_z})+\dot{g_v}\cdot dV=m\cdot C_p\cdot\frac{dT}{dt}\]
+
+Para la transformación a coordenadas cilíndricas se utiliza:
+
+\[x=r\cdot cos\phi\cdot
+
+\[y=r\cdot sen\phi\cdot
+
+\[z=z
+
+Luego:
+
+\[d\dot{q_r}+d\dot{q_\phi}+d\dot{q_z}+\dot{g_v}\cdot dV=\rho\cdot dV\cdot C_p\cdot \frac{dT}{dt}\]
+
+\\*
+
+El diferencial de volumen se puede definir como:
+
+\[dV=dr\cdot r\cdot d\phi\cdot dz
+\\*
+\\*
+
+Luego, dividiendo la ecuación del calor en el diferencial de volumen:
+\\*
+
+\[\frac{d\dot{q_r}}{dr\cdot r\cdot d\phi\cdot dz}+\frac{d\dot{q_\phi}}{dr\cdot r\cdot d\phi\cdot dz}+\frac{d\dot{q_z}}{dr\cdot r\cdot d\phi\cdot dz}+\dot{g_v}=\rho\cdot C_p\cdot \frac{dT}{dt}\]
+\\*
+
+La cantidad de calor en el volumen de material en cada una de las direcciones se puede definir de la siguiente manera en tanto se comportan de acuerdo a la Ley de Fourier:
+\\*
+
+\[\dot{q_r}=k\cdot dA_r\cdot \frac{dT}{dl_r}
+
+\[\dot{q_\phi}=k\cdot dA_\phi\cdot \frac{dT}{dl_\phi}
+
+\[\dot{q_z}=k\cdot dA_z\cdot \frac{dT}{dl_z}
+\\*
+
+Las diferenciales de área y longitud se pueden reescribir en coordenadas cilíndricas de la siguiente manera:
+
+\[dA_r=rd\phi\cdot dz 
+
+\[dA_\phi=dr\cdot dz
+
+\[dA_z=dr\cdot rd\phi
+
+\[dl_r=dr
+
+\[dl_\phi=r\cdot d\phi
+
+\[dl_z=dz
+\\*
+
+Luego, con estas sustituciones la ecuación de calor queda de la siguiente forma:
+\\*
+
+\[\frac{d \Bigr[ k\cdot rd\phi\cdot dz\cdot \frac{dT}{dr} \Bigr] }{dr\cdot r\cdot d\phi\cdot dz}+\frac{d \left[ k\cdot dr\cdot dz\cdot \frac{dT}{r\cdot d\phi} \right] }{dr\cdot r\cdot d\phi\cdot dz}+\frac{d \Bigr[ k\cdot dr\cdot rd\phi\cdot \frac{dT}{dz} \Bigr] }{dr\cdot r\cdot d\phi\cdot dz}+\dot{g_v}=\rho\cdot C_p\cdot \frac{dT}{dt}\]
+\\*
+
+Simplificando:
+\\*
+
+\[\frac{1}{r}\frac{d}{dr}\biggr[k\cdot r\frac{dT}{dr}\biggr]+\frac{1}{r^2}\frac{d}{d\phi}\biggr[k\cdot \frac{dT}{d\phi}\biggr]+\frac{d}{dz}\biggr[k\cdot \frac{dT}{dz}\biggr]+\dot{g_v}=\rho\cdot C_p\cdot \frac{dT}{dt}
+
+\vspace{15pt}
+
+\section{Ecuación de difusión del calor en coordenadas esféricas}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\textwidth]{Esféricas.jpg}
+\caption{\label{fig:frog}Diagrama de difusión de calor en coordenadas esféricas.}
+\end{figure}
+
+En la figura 2 se puede ver un diagrama que muestra el análisis geométrico a realizar en coordenadas esféricas. A partir del mismo se llega a la siguiente expresión:
+
+\[(\dot{q_r}-\dot{q_r}+d\dot{q_r})+(\dot{q_\phi}-\dot{q_\phi}+d\dot{q_\phi})+(\dot{q_\theta}-\dot{q_\theta}+d\dot{q_\theta})+\dot{g_v}\cdot dV=m\cdot C_p\cdot\frac{dT}{dt}\]
+
+Por otro lado, la transformación en coordenadas esféricas es de la siguiente forma:
+
+\[x=r\cdot cos\phi\cdot sen\theta
+
+\[y=r\cdot sen\phi\cdot sen\theta
+
+\[z=r\cdot cos\phi
+
+Luego:
+
+\[d\dot{q_r}+d\dot{q_\phi}+d\dot{q_\theta}+\dot{g_v}\cdot dV=\rho\cdot dV\cdot C_p\cdot\frac{dT}{dt}\]
+
+El diferencial de volumen se define como:
+
+\[dV=dr\cdot r\cdot sen\theta\cdot d\phi\cdot rd\theta
+
+Dividiendo la ecuación del calor en el diferencial de volumen:
+
+\[\frac{d\dot{q_r}}{dr\cdot r\cdot sen\theta\cdot d\phi\cdot rd\theta}+\frac{d\dot{q_\phi}}{dr\cdot r\cdot sen\theta\cdot d\phi\cdot rd\theta}+\frac{d\dot{q_\theta}}{dr\cdot r\cdot sen\theta\cdot d\phi\cdot rd\theta}+\dot{g_v}=\rho\cdot C_p\cdot \frac{dT}{dt}\]
+
+La cantidad de calor en el volumen de material en cada una de las direcciones se puede definir de la siguiente manera en tanto se comportan de acuerdo a la Ley de Fourier:
+\\*
+
+\[\dot{q_r}=k\cdot dA_r\cdot \frac{dT}{dl_r}
+
+\[\dot{q_\phi}=k\cdot dA_\phi\cdot \frac{dT}{dl_\phi}
+
+\[\dot{q_\theta}=k\cdot dA_\theta\cdot \frac{dT}{dl_\theta}
+\\*
+
+Las diferenciales de área y longitud se pueden reescribir en coordenadas cilíndricas de la siguiente manera:
+
+\[dA_r=r\cdot sen\theta\cdot d\phi\cdot r\cdot d\theta 
+
+\[dA_\phi=dr\cdot r\cdot d\theta
+
+\[dA_z=dr\cdot r\cdot sen\theta\cdot d\phi
+
+\[dl_r=dr
+
+\[dl_\phi=r\cdot sen\theta\cdot d\phi
+
+\[dl_\theta=r\cdot d\theta
+\\*
+
+Con estas sustituciones la ecuación de calor queda de la siguiente forma:
+\\*
+
+\[\frac{d \Bigr[ k\cdot r^2sen\theta\cdot d\phi\cdot d\theta\cdot \frac{dT}{dr} \Bigr] }{dr\cdot r\cdot sen\theta\cdot d\phi\cdot rd\theta}+\frac{d \left[ k\cdot dr\cdot r\cdot d\theta\cdot \frac{dT}{r\cdot sen\theta\cdot d\phi} \right] }{dr\cdot r\cdot sen\theta\cdot d\phi\cdot rd\theta}+\frac{d \Bigr[ dr\cdot r\cdot sen\theta\cdot d\phi\cdot \frac{dT}{r\cdot d\theta} \Bigr] }{dr\cdot r\cdot sen\theta\cdot d\phi\cdot rd\theta}+\dot{g_v}=\rho\cdot C_p\cdot \frac{dT}{dt}\]
+\\*
+
+Simplificando:
+\\*
+
+\[\frac{1}{r^2}\frac{d}{dr}\biggr[k\cdot r^2\frac{dT}{dr}\biggr]+\frac{1}{r^2\cdot sen^2\theta}\frac{d}{d\phi}\biggr[k\cdot \frac{dT}{d\phi}\biggr]+\frac{1}{r^2sen\theta}\frac{d}{d\theta}\biggr[k\cdot sen\theta\cdot \frac{dT}{d\theta}\biggr]+\dot{g_v}=\rho\cdot C_p\cdot \frac{dT}{dt}
+
+\end{document}
