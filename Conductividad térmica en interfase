@@ -1,0 +1,158 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Conductividad térmica en la interfase}
+\author{Guillermo Riquelme Hernández}
+
+\begin{document}
+\maketitle
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{geointerfaz.jpg}
+\caption{\label{fig:frog}Geometría de la interfase entre los puntos P y E.}
+\end{figure}
+
+Se asume un material compuesto del cual se analizan un punto P y un punto E que difieren en coeficiente de conductividad térmica. El objetivo es encontrar la conductividad térmica correspondiente a la interfase entre estos dos puntos.
+Para empezar, se sabe que el flujo de calor a ambos lados de la interfase es igual. Esto se expresa como:
+
+\vspace{15pt}
+
+\begin{large}
+
+\[q_{e^-}= \: q_{e^+}\]
+
+\vspace{15pt}
+
+\[-k_P \left. \frac{dT}{dx} \right|_{e^-}=-k_E \left. \frac{dT}{dx} \right|_{e^+}\]
+
+\vspace{15pt}
+
+\[-k_P\frac{T_e-T_P}{(\delta x)_{e-}}=-k_E\frac{T_E-T_e}{(\delta x)_{e+}}\]
+
+\end{large}
+
+\vspace{15pt}
+
+Si se considera de forma separada el flujo desde ámbos lados:
+
+\vspace{15pt}
+
+\[
+  \text{Flujo de calor} =
+    \begin{large}
+    \begin{cases}
+      \\
+      q_{e^-}=-k_P\frac{T_e-T_P}{(\delta x)_{e-}} \\
+      \\
+      q_{e^+}=-k_E\frac{T_E-T_e}{(\delta x)_{e+}} \\
+      
+    \end{large}
+    \end{cases}       
+\]
+
+\vspace{15pt}
+
+\[
+  \text{Flujo de calor} =
+    \begin{large}
+    \begin{cases}
+      \\
+      q_{e-}\cdot \frac{(\delta x)_{e-}}{k_P}=-(T_e-T_P) \\
+      \\
+      q_{e+}\cdot \frac{(\delta x)_{e+}}{k_E}=-(T_E-T_e) \\
+      
+    \end{large}
+    \end{cases}       
+\]
+
+\vspace{15pt}
+
+Al sumar las cantidades a ambos lados de la igualdad tenemos:
+
+\vspace{15pt}
+
+\[q_{e-}\cdot \frac{(\delta x)_{e-}}{k_P}+q_{e+}\cdot \frac{(\delta x)_{e+}}{k_E}=-(T_e-T_P)-(T_E-T_e)\]
+
+\vspace{15pt}
+
+\[q_e\biggl(\frac{(\delta x)_{e-}}{k_P}+\frac{(\delta x)_{e+}}{k_E}\biggl)=T_P-T_E\]
+
+\vspace{15pt}
+
+\begin{large}
+
+\[q_e=\frac{(\delta x)_{e-}}{\frac{(\delta x)_{e-}}{k_P}+\frac{(\delta x)_{e+}}{{k_E}}}\cdot \frac{T_P-T_E}{(\delta x)_{e-}}\]
+
+\end{large}
+
+\vspace{15pt}
+
+Si se ve la fracción de la derecha de la multiplicación como la aproximación de una derivada, la fracción al lado izquierdo de la multiplicación corresponde a $k_e$.
+
+\vspace{15pt}
+
+\[q_e=\frac{k_e(T_P-T_E)}{(\delta x)_e}\]
+
+\vspace{15pt}
+
+Por otro lado, si se asume que existe una variación lineal de $k$ entre $P$ y $E$, se podría decir que:
+
+\vspace{15pt}
+
+\[k_e=f_ek_P+(1-f_e)k_E\]
+
+\vspace{15pt}
+
+donde el factor de interpolación $f_e$ es la relación:
+
+\vspace{15pt}
+
+\[f_e\equiv \frac{(\delta x)_{e+}}{(\delta x)_e}\]
+
+\vspace{15pt}
+
+Y si se sabe que:
+
+\vspace{15pt}
+
+\begin{large}
+
+\[q_e=\frac{T_P-T_E}{\frac{(\delta x)_e-}{k_P}+{\frac{(\delta x)_{e+}}{k_E}}}\]
+
+\end{large}
+
+\vspace{70pt}
+
+Al introducir el factor de interpolación $f_e$ en la ecuación anterior se tiene:
+
+\vspace{15pt}
+
+\[k_e=\biggl( \frac{1-f_e}{k_P}+\frac{f_e}{k_E}\biggl)^{-1}\]
+
+\vspace{15pt}
+
+Cuando la interfase $e$ se encuentra ubicada a medio camino entre P y E (osea $f_e=0.5$, se tiene:
+
+\vspace{15pt}
+
+\[k_e=\frac{2k_Pk_E}{k_P+k_E}\]
+
+\vspace{15pt}
+
+Esta fórmula se ajusta a la perfección a la forma de la media armónica entre dos valores. Así se puede concluir que $k_e$ es equivalente a la media armónica de $k_P$ y $k_E$
+
+
+\end{document}
