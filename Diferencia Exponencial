@@ -1,0 +1,115 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Ecuación de discretización con fuente y tiempo}
+\author{Guillermo Riquelme Hernández}
+
+\begin{document}
+\maketitle
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{controldevolumen.jpg}
+\caption{\label{fig:frog}Volumen de control de un nodo.}
+\end{figure}
+
+Consideremos la situación de un flujo unidimensional estacionario donde solo los términos convectivos y difusivos están presentes. La ecuación diferencial que gobierna es:
+
+\vspace{15pt}
+
+\begin{large}
+
+\[\frac{d}{dx}(\rho u \phi)=\frac{d}{dx}\biggl(\Gamma \frac{d\phi}{dx}\biggl)\]
+
+\vspace{15pt}
+
+
+{\normalsize Para llegar a una solución exacta debemos considerar $\Gamma$ como constante. Si un dominio $0<=x<=L$ con las condiciones de contorno:}
+
+\vspace{15pt}
+
+\[\phi=\phi_0\hspace{5}, \hspace{15}x=0\]
+\[\phi=\phi_L\hspace{5}, \hspace{15}x=L\] 
+    
+\vspace{15pt}
+
+La solución de la ecuación de gobierno sería:
+
+\vspace{15pt}
+
+\[\frac{\phi-\phi_0}{\phi_L-\phi_0}=\frac{exp (Px/L)-1}{exp (P) - 1}\]
+
+\end{large}
+
+\vspace{15pt}
+
+Donde el número de Peclet se define por:
+
+\vspace{15pt}
+
+\[P \equiv \frac{\rho u L}{\Gamma}\]
+
+
+\vspace{15pt}
+
+Para el esquema exponencial se considera un flujo total $J$ que se construye a partir del flujo convectivo $\rho u\phi$ y el flujo difusivo $-\Gamma \frac{d\phi}{dx}$:
+
+\[J=\rho u\phi - \Gamma \frac{d\phi}{dx}\]
+
+
+\vspace{15pt}
+
+
+Con esta definicion, la ecuación de gobierno se vuelve:
+
+\vspace{15pt}
+
+\[\frac{dJ}{dx}=0  
+\]
+
+\vspace{15pt}
+
+Que al ser integrada sobre el volumen de control de la figura 1 da:
+
+\vspace{15pt}
+
+\[J_e-J_w=0 
+\]
+
+\vspace{15pt}
+
+La solución exacta puede entonces ser usada como un perfil entre los puntos P y E con $\phi_0$ y $\phi_L$, y la distancia $(\delta x)_e$ reemplazando L. La sustitución de este perfil nos da:
+
+\vspace{15pt}
+
+\[J_e=F_e \biggl(\phi_P + \frac{\phi_P-\phi_E}{exp (P_e)-1}\biggl)\]
+
+\vspace{15pt}
+
+Donde:
+
+\vspace{15pt}
+
+\begin{large}
+
+\[P_e=\frac{(\rho u)_e (\delta x)_e}{\Gamma_e}= \frac{F_e}{D_e} \]
+
+\end{large}
+
+\vspace{15pt}
+
+
+
+\end{document}
